@@ -888,5 +888,168 @@
 
 })(jQuery);
 
+// WHY REVEAL — IntersectionObserver para .reveal
+(function() {
+  var els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(function(el) { obs.observe(el); });
+})();
 
+// WHY HERO — vídeo único + bloqueio de scroll na primeira visita
+(function() {
+  var video = document.getElementById('why-hero-video');
+  if (!video) return;
 
+  var videoSrc = 'assets/Capas hero/capa-hero.mp4';
+
+  function loadVideo() {
+    if (video.src && video.src.indexOf(videoSrc) !== -1) return;
+    video.src = videoSrc;
+    video.load();
+    video.play().catch(function(){});
+  }
+
+  function showCta() {
+    var wrap = document.querySelector('.why-hero__cta-wrap');
+    if (wrap) wrap.classList.add('visible');
+  }
+
+  var seen = sessionStorage.getItem('whyHeroSeen');
+
+  if (seen) {
+    video.loop = true;
+    loadVideo();
+    showCta();
+  } else {
+    // Primeira visita: trava scroll e oculta header
+    video.loop = false;
+    document.body.style.overflow = 'hidden';
+    var header = document.getElementById('xb-header-area');
+    if (header) header.classList.add('why-header-hidden');
+
+    var locked = true;
+    var hero = document.querySelector('.why-hero');
+    var bouncing = false;
+
+    function bounce() {
+      if (bouncing || !hero) return;
+      bouncing = true;
+      hero.style.transition = 'transform .18s cubic-bezier(.36,.07,.19,.97)';
+      hero.style.transform = 'translateY(-10px)';
+      setTimeout(function() {
+        hero.style.transform = 'translateY(4px)';
+        setTimeout(function() {
+          hero.style.transform = 'translateY(0)';
+          setTimeout(function() { bouncing = false; }, 150);
+        }, 120);
+      }, 160);
+    }
+
+    window.addEventListener('wheel', function(e) {
+      if (!locked) return;
+      if (e.deltaY > 0) { e.preventDefault(); bounce(); }
+    }, { passive: false });
+
+    window.addEventListener('touchmove', function(e) {
+      if (!locked) return;
+      e.preventDefault(); bounce();
+    }, { passive: false });
+
+    video.addEventListener('ended', function() {
+      locked = false;
+      document.body.style.overflow = '';
+      sessionStorage.setItem('whyHeroSeen', '1');
+      showCta();
+      // header só aparece após a tensão (onLeave do ScrollTrigger)
+    });
+
+    loadVideo();
+  }
+})();
+
+/* ============================================================
+   WHY TENSÃO — Estilo Moma + Scroll Reveal + Header reveal
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var wrap    = document.querySelector('.why-tensao-wrap');
+  var sticky  = document.querySelector('.why-tensao-sticky');
+  var frames  = document.querySelectorAll('.why-tensao-frame');
+  var counter = document.querySelector('.wtc-num');
+  var header  = document.getElementById('xb-header-area');
+
+  if (!wrap || !sticky || !frames.length) return;
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+  var total     = frames.length; // 4
+  var activeIdx = -1;
+  var frameNums = ['01', '02', '03', '04'];
+
+  function activateFrame(idx) {
+    idx = Math.max(0, Math.min(idx, total - 1));
+    if (idx === activeIdx) return;
+    activeIdx = idx;
+    frames.forEach(function (f, i) {
+      f.classList.toggle('wt-active', i === idx);
+    });
+    if (counter) counter.textContent = frameNums[idx];
+  }
+
+  function showHeader() {
+    if (header) header.classList.remove('why-header-hidden');
+  }
+
+  activateFrame(0);
+
+  ScrollTrigger.create({
+    trigger : wrap,
+    start   : 'top top',
+    end     : '+=' + (window.innerHeight * 2),
+    pin     : sticky,
+    scrub   : 0.3,
+    onUpdate: function (self) {
+      var idx = Math.min(Math.floor(self.progress * total), total - 1);
+      activateFrame(idx);
+    },
+    onLeave: function () {
+      // Após a última frase: header desliza para dentro
+      showHeader();
+    },
+    onEnterBack: function () {
+      // Se voltar à tensão na sessão de abertura: re-oculta header
+      var seen = sessionStorage.getItem('whyHeroSeen');
+      if (seen === '1' && header && !header.classList.contains('why-header-hidden')) return;
+      if (header) header.classList.add('why-header-hidden');
+    }
+  });
+
+})();
+
+/* ============================================================
+   WHY TENSÃO — velocidade do vídeo decorativo
+   ============================================================ */
+/* Código desativado - agora usa imagem estática (4.png)
+(function () {
+  var simbolo = document.querySelector('.why-tensao-symbol__video');
+  if (!simbolo) return;
+
+  function setSpeed() {
+    simbolo.playbackRate = 0.4;
+  }
+
+  if (simbolo.readyState >= 1) {
+    setSpeed();
+  } else {
+    simbolo.addEventListener('loadedmetadata', setSpeed);
+  }
+})();
+*/
