@@ -83,8 +83,7 @@
 .wc-hero__title-ghost {
   font-family: 'Blauer', sans-serif;
   font-weight: 700;
-  color: transparent;
-  -webkit-text-stroke: 2px rgba(122, 108, 255, .5);
+  color: #F5F5F2;
   font-size: inherit;
 }
 .wc-hero__tagline {
