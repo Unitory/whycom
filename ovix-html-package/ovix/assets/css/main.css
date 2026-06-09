@@ -9773,34 +9773,6 @@ abbr[title] {
   background: #0A0A0A;
 }
 
-/* Círculos inferior esquerdo */
-.why-tensao-circles {
-  position: absolute;
-  bottom: 72px;
-  left: 5rem;
-  display: flex;
-  align-items: flex-end;
-  gap: 8px;
-  z-index: 3;
-  pointer-events: none;
-}
-.wtc {
-  display: block;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.wtc--fill {
-  width: 56px;
-  height: 56px;
-  background: #BEFF2E;
-}
-.wtc--ring {
-  width: 48px;
-  height: 48px;
-  border: 1.5px solid rgba(245, 240, 232, .22);
-  background: transparent;
-}
-
 /* Linha base */
 .why-tensao-base-line {
   position: absolute;
@@ -9938,14 +9910,10 @@ abbr[title] {
   }
   .why-tensao-symbol { display: none; }
   .why-tensao-frame  { left: 2.5rem; right: 2.5rem; }
-  .why-tensao-circles { left: 2.5rem; }
 }
 
 @media (max-width: 768px) {
   .why-tensao-wrap { height: 500vh; }
-  .why-tensao-circles { left: 1.5rem; bottom: 56px; }
-  .wtc--fill { width: 44px; height: 44px; }
-  .wtc--ring { width: 36px; height: 36px; }
   .why-tensao-frame { left: 1.5rem; right: 1.5rem; }
   .wtf-sub { font-size: clamp(1rem, 4vw, 1.3rem); }
   .wtf-sub--right { padding-left: 1.5rem; }
@@ -10059,6 +10027,48 @@ abbr[title] {
 }
 .why-metodo__card .services-three__read-more a:hover {
   opacity: .7;
+}
+
+/* Lista com bullets verdes */
+.why-metodo__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.why-metodo__list li {
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 6px;
+  font-family: 'Just Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: #F5F0E8;
+}
+.why-metodo__list li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  color: #BEFF2E;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* Assinatura */
+.why-metodo__assinatura {
+  margin-top: 60px;
+  text-align: center;
+}
+.why-metodo__assinatura p {
+  font-family: 'Blauer Nue', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  color: #F5F0E8;
+  text-align: center;
+  line-height: 1.1;
+  margin: 0;
+}
+.wma-destaque {
+  color: #BEFF2E;
 }
 
 /* Flow indicator */
@@ -11205,6 +11215,8 @@ main > .why-hero + .why-slide { margin-top: 0 !important; }
   -o-object-position: center;
      object-position: center;
   display: block;
+  -webkit-filter: grayscale(100%) contrast(1.2);
+          filter: grayscale(100%) contrast(1.2);
 }
 
 /* ── Coluna direita: conteúdo ───────────────────────────── */
@@ -11233,29 +11245,61 @@ main > .why-hero + .why-slide { margin-top: 0 !important; }
 /* Label */
 .why-fechamento__label {
   font-family: 'Just Sans', sans-serif;
-  font-size: .62rem;
+  font-size: 0.75rem;
   font-weight: 400;
-  letter-spacing: .28em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #BEFF2E;
-  margin-bottom: 2rem;
+  margin-bottom: 24px;
+  display: block;
+}
+
+/* Nome */
+.why-fechamento__nome {
+  font-family: 'Blauer Nue', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  color: #F5F0E8;
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+
+/* Linha verde */
+.why-fechamento__linha-verde {
+  width: 48px;
+  height: 3px;
+  background-color: #BEFF2E;
+  margin-bottom: 16px;
+}
+
+/* Cargo */
+.why-fechamento__cargo {
+  font-family: 'Just Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #F5F0E8;
+  opacity: 0.6;
+  font-weight: 300;
+  margin-bottom: 32px;
 }
 
 /* Título */
-.why-fechamento__title {
-  font-family: 'Blauer Nue', sans-serif;
-  font-weight: 800;
-  font-style: italic;
-  font-size: clamp(1.8rem, 2.8vw, 3.2rem);
-  line-height: 1.1;
-  letter-spacing: -.01em;
+.why-fechamento__titulo {
+  font-family: 'Just Sans', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.3rem);
   color: #F5F0E8;
-  margin-bottom: 3rem;
-  word-break: normal;
-  overflow-wrap: break-word;
-  -webkit-hyphens: none;
-      -ms-hyphens: none;
-          hyphens: none;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+/* Texto */
+.why-fechamento__text {
+  font-family: 'Just Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #F5F0E8;
+  opacity: 0.7;
+  margin-bottom: 40px;
 }
 
 /* CTA */
@@ -11505,6 +11549,42 @@ main > .why-hero + .why-slide { margin-top: 0 !important; }
 .xbImage__hover:hover .port-overlay {
   opacity: 1 !important;
 }
+
+/* Estilos dos cards de cliente no overlay */
+.wpo-title {
+  font-family: 'Blauer Nue', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #F5F0E8;
+  margin: 0 0 1rem 0;
+  line-height: 1.1;
+}
+
+.wpo-desc {
+  font-family: 'Just Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #F5F0E8;
+  opacity: 0.85;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
+}
+
+.wpo-btn {
+  font-family: 'Just Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: #BEFF2E;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: opacity 0.3s ease;
+}
+.wpo-btn:hover {
+  opacity: 0.7;
+}
+
 /* ============================================================
    WHY FOOTER — ajustes
    ============================================================ */
