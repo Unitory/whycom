@@ -95,6 +95,16 @@
   letter-spacing: .05em;
   max-width: 480px;
 }
+.wc-hero__text {
+  font-family: 'Just Sans', sans-serif;
+  font-size: 1rem;
+  color: #F5F0E8;
+  opacity: 0.8;
+  font-weight: 300;
+  max-width: 480px;
+  margin-top: 16px;
+  line-height: 1.6;
+}
 
 /* ── FICHA DO PROJETO ────────────────────────────────────── */
 .wc-meta {
@@ -176,13 +186,14 @@
 }
 .wc-editorial__title {
   font-family: 'Blauer Nue', sans-serif;
-  font-weight: 800;
-  font-size: clamp(1.8rem, 3.5vw, 3.5rem);
-  line-height: 1.08;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.2;
   letter-spacing: .01em;
-  color: #F5F5F2;
+  color: #F5F0E8;
+  margin-top: 24px;
 }
-.wc-editorial__title span { color: #7A6CFF; }
+.wc-editorial__title span { color: #BEFF2E; }
 .wc-editorial__right p {
   font-family: 'Just Sans', sans-serif;
   font-size: .88rem;
@@ -345,6 +356,17 @@
   line-height: 1.8;
   margin-bottom: 1.2rem;
 }
+.wc-desafio__text {
+  font-family: 'Blauer', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: #F5F0E8;
+  line-height: 1.15;
+  margin: 0;
+}
+.wc-desafio__destaque {
+  color: #BEFF2E;
+}
 .wc-desafio__right img {
   width: 100%;
   height: auto;
@@ -367,34 +389,26 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 4px;
-  padding: 32px 24px;
+  padding: 40px 32px;
   height: 100%;
+  min-height: 140px;
   transition: border-color 0.3s ease;
 }
 .wc-organizado__card:hover {
   border-color: rgba(190, 255, 46, 0.3);
 }
 .wc-organizado__icon {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 .wc-organizado__title {
   font-family: 'Blauer Nue', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #F5F0E8;
-  letter-spacing: 0.05em;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  letter-spacing: 0.08em;
+  margin-top: 16px;
+  margin-bottom: 0;
   text-transform: uppercase;
-}
-.wc-organizado__text {
-  font-family: 'Just Sans', sans-serif;
-  font-size: 0.85rem;
-  color: #F5F0E8;
-  opacity: 0.6;
-  font-weight: 300;
-  line-height: 1.7;
-  margin: 0;
 }
 
 /* ── RESULTADO ───────────────────────────────────────────── */
@@ -469,9 +483,30 @@
   margin-bottom: 32px;
 }
 
+/* ── O QUE CONSTRUÍMOS ───────────────────────────────────── */
+.wc-construimos {
+  padding: 80px 0;
+  background: #0A0A0A;
+  border-top: 1px solid rgba(245, 240, 232, .07);
+}
+.wc-construimos__list {
+  list-style: none;
+  padding: 0;
+  margin-top: 40px;
+  max-width: 480px;
+}
+.wc-construimos__list li {
+  font-family: 'Just Sans', sans-serif;
+  color: #F5F0E8;
+  font-size: 1.1rem;
+  font-weight: 300;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 /* ── FECHAMENTO ──────────────────────────────────────────── */
 .wc-fechamento {
-  padding: 120px 20px 100px;
+  padding: 80px 0;
   background: #0A0A0A;
   border-top: 1px solid rgba(245, 240, 232, .07);
   margin-bottom: 60px;
@@ -479,11 +514,11 @@
 .wc-fechamento__frase {
   text-align: center;
   font-family: 'Blauer', sans-serif;
-  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
   color: #F5F0E8;
   font-weight: 700;
   letter-spacing: 0.01em;
-  line-height: 1.4;
+  line-height: 1.2;
   margin: 0;
 }
 .wc-frase-verde {
@@ -504,6 +539,9 @@
     gap: 40px;
   }
   .wc-gallery__half {
+    grid-template-columns: 1fr;
+  }
+  .wc-editorial__inner {
     grid-template-columns: 1fr;
   }
 }
