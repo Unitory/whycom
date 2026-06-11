@@ -7213,6 +7213,23 @@ blockquote {
   .portfolio-item {
     margin-top: 40px; } }
 
+/* Cards proporção retangular vertical — todos iguais */
+.why-projetos-grid .xbImage__hover {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.why-projetos-grid .xbImage__hover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 .xb-portfolio {
   position: relative; }
   .xb-portfolio:hover .xb-item--img {
@@ -9874,6 +9891,26 @@ abbr[title] {
 .wtf-white { color: #F5F0E8; }
 .wtf-lime  { color: #BEFF2E; }
 
+/* Frase abaixo do "POR QUÊ?" */
+.wtf-porque-frase {
+  font-family: 'Just Sans', sans-serif;
+  font-weight: 300;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  color: rgba(245, 240, 232, 0.7);
+  letter-spacing: 0.02em;
+  margin-top: 2rem;
+  max-width: 100%;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-in-out 0.6s, transform 0.8s ease-in-out 0.6s;
+}
+
+.why-tensao-frame.wt-active .wtf-porque-frase {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ── Coluna direita: vídeo símbolo ───────────────────────── */
 .why-tensao-symbol {
   position: relative;
@@ -11594,6 +11631,16 @@ main > .why-hero + .why-slide { margin-top: 0 !important; }
   height: 42px;
   width: auto;
   display: block;
+}
+
+/* Frase do footer próxima ao logo */
+.why-footer-claim {
+  font-family: 'Just Sans', sans-serif;
+  font-weight: 300;
+  color: #F5F0E8;
+  line-height: 1.8;
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
 /* Ícones sociais: cor branca, tamanho maior, espaçados */
