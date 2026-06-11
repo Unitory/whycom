@@ -7222,12 +7222,79 @@ blockquote {
   width: 100%;
 }
 
+/* O <a> ocupa todo o card e é o contexto do overlay */
+.why-projetos-grid .xbImage__hover a {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-decoration: none;
+}
+
 .why-projetos-grid .xbImage__hover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   display: block;
+}
+
+/* Overlay ancorado no rodapé do <a> */
+.why-projetos-grid .why-port-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.why-projetos-grid .portfolio-item:hover .why-port-overlay {
+  opacity: 1;
+}
+
+/* Título */
+.why-projetos-grid .wpo-title {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.3;
+  font-family: 'Blauer Nue', sans-serif;
+  font-weight: 800;
+  color: #F5F0E8;
+}
+
+/* Descrição */
+.why-projetos-grid .wpo-desc {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  font-family: 'Just Sans', sans-serif;
+  font-weight: 300;
+  color: rgba(245,240,232,0.75);
+}
+
+/* Botão CTA */
+.why-projetos-grid .wpo-btn {
+  display: inline-block;
+  font-size: 0.78rem;
+  color: #BEFF2E;
+  margin-top: 0.25rem;
+  letter-spacing: 0.05em;
+  font-family: 'Just Sans', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  transition: opacity 0.3s ease;
+}
+
+.why-projetos-grid .wpo-btn:hover {
+  opacity: 0.7;
 }
 
 .xb-portfolio {
@@ -11576,8 +11643,8 @@ main > .why-hero + .why-slide { margin-top: 0 !important; }
 .port-overlay {
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  padding: 1.5rem;
-  background: linear-gradient(to top, rgba(10,10,10,.9) 0%, transparent 100%);
+  padding: 5rem 1.5rem 2rem 1.5rem;
+  background: linear-gradient(to top, rgba(10,10,10,.95) 0%, rgba(10,10,10,.7) 60%, transparent 100%);
   opacity: 0;
   transition: opacity .4s ease;
   z-index: 2;
@@ -11590,26 +11657,26 @@ main > .why-hero + .why-slide { margin-top: 0 !important; }
 /* Estilos dos cards de cliente no overlay */
 .wpo-title {
   font-family: 'Blauer Nue', sans-serif;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 800;
   color: #F5F0E8;
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.5rem 0;
   line-height: 1.1;
 }
 
 .wpo-desc {
   font-family: 'Just Sans', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 300;
   color: #F5F0E8;
   opacity: 0.85;
-  margin: 0 0 1.5rem 0;
-  line-height: 1.6;
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
 }
 
 .wpo-btn {
   font-family: 'Just Sans', sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 400;
   letter-spacing: 0.05em;
   color: #BEFF2E;

@@ -83,7 +83,7 @@
   font-style: italic;
   color: rgba(245, 240, 232, .45);
   letter-spacing: .05em;
-  max-width: 480px;
+  white-space: nowrap;
 }
 .wc-hero__text {
   font-family: 'Just Sans', sans-serif;
