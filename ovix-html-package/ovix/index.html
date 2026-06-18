@@ -23,6 +23,144 @@
     <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/main.css">
+
+    <style>
+.why-cta-btn {
+  margin-top: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.why-projetos-swiper {
+  position: relative;
+  overflow: hidden;
+}
+
+.why-projetos-swiper .xbImage__hover img {
+  aspect-ratio: 3/4;
+  height: 520px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.why-swiper-nav {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 10;
+  padding: 0 16px;
+}
+
+.why-swiper-prev,
+.why-swiper-next {
+  pointer-events: all;
+  width: 48px;
+  height: 48px;
+  background: #0A0A0A;
+  border: 1px solid rgba(190,255,46,0.3);
+  color: #BEFF2E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background 0.2s;
+}
+
+.why-swiper-prev:hover,
+.why-swiper-next:hover {
+  background: #BEFF2E;
+  color: #0A0A0A;
+}
+
+/* Dropdown menu para Projetos */
+.main-menu .menu-item-has-children {
+  position: relative;
+}
+
+.main-menu .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: #0A0A0A;
+  border: 1px solid rgba(190,255,46,0.2);
+  padding: 12px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  list-style: none;
+  margin: 0;
+}
+
+.main-menu .menu-item-has-children:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.main-menu .sub-menu li {
+  padding: 0;
+  margin: 0;
+}
+
+.main-menu .sub-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: #F5F0E8;
+  font-family: 'Just Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.main-menu .sub-menu a:hover {
+  background: rgba(190,255,46,0.1);
+  color: #BEFF2E;
+  padding-left: 24px;
+}
+
+/* Mobile menu accordion */
+.xb-header-nav .menu-item-has-children > a {
+  position: relative;
+}
+
+.xb-header-nav .sub-menu {
+  display: none;
+  list-style: none;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.xb-header-nav .menu-item-has-children.active .sub-menu {
+  display: block;
+}
+
+.xb-header-nav .sub-menu a {
+  display: block;
+  padding: 8px 0;
+  color: #F5F0E8;
+  font-size: 0.85rem;
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.xb-header-nav .sub-menu a:hover {
+  color: #BEFF2E;
+  opacity: 1;
+  padding-left: 8px;
+}
+    </style>
 </head>
 
 <body>
@@ -63,7 +201,16 @@
                               <li><a href="index.html"><span>Início</span></a></li>
                               <li><a href="#sobre"><span>Sobre</span></a></li>
                               <li><a href="#metodo"><span>Método</span></a></li>
-                              <li><a href="#projetos"><span>Projetos</span></a></li>
+                              <li class="menu-item-has-children">
+                                <a href="#projetos"><span>Projetos</span></a>
+                                <ul class="sub-menu">
+                                  <li><a href="marble-terrace.html">Marble Terrace</a></li>
+                                  <li><a href="clementino-cunha.html">Clementino Cunha</a></li>
+                                  <li><a href="intereventos.html">InterEventos</a></li>
+                                  <li><a href="project-single.html">ID Wine</a></li>
+                                  <li><a href="printer-co.html">Printer & CO</a></li>
+                                </ul>
+                              </li>
                               <li><a href="#contato"><span>Contato</span></a></li>
                             </ul>
                         </nav>
@@ -83,7 +230,16 @@
                                             <li class="menu-item"><a href="index.html"><span>Início</span></a></li>
                                             <li class="menu-item"><a href="#sobre"><span>Sobre</span></a></li>
                                             <li class="menu-item"><a href="#metodo"><span>Método</span></a></li>
-                                            <li class="menu-item"><a href="#projetos"><span>Projetos</span></a></li>
+                                            <li class="menu-item menu-item-has-children">
+                                                <a href="#projetos"><span>Projetos</span></a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="marble-terrace.html">Marble Terrace</a></li>
+                                                    <li><a href="clementino-cunha.html">Clementino Cunha</a></li>
+                                                    <li><a href="intereventos.html">InterEventos</a></li>
+                                                    <li><a href="project-single.html">ID Wine</a></li>
+                                                    <li><a href="printer-co.html">Printer & CO</a></li>
+                                                </ul>
+                                            </li>
                                             <li class="menu-item"><a href="#contato"><span>Contato</span></a></li>
                                         </ul>
                                     </nav>
@@ -585,6 +741,7 @@
   new Swiper('.why-projetos-swiper', {
     slidesPerView: 3.2,
     spaceBetween: 24,
+    loop: true,
     navigation: {
       nextEl: '.why-swiper-next',
       prevEl: '.why-swiper-prev',
@@ -594,6 +751,20 @@
       576:  { slidesPerView: 1.8, spaceBetween: 20 },
       768:  { slidesPerView: 2.2, spaceBetween: 24 },
       1200: { slidesPerView: 3.2, spaceBetween: 24 },
+    }
+  });
+
+  // Mobile menu accordion para Projetos
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuItem = document.querySelector('.xb-header-nav .menu-item-has-children > a');
+    if (mobileMenuItem) {
+      mobileMenuItem.addEventListener('click', function(e) {
+        // Apenas previne default em telas pequenas
+        if (window.innerWidth < 992) {
+          e.preventDefault();
+          this.parentElement.classList.toggle('active');
+        }
+      });
     }
   });
 </script>

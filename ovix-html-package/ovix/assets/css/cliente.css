@@ -21,6 +21,8 @@
   padding-top: 0;
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
 }
 .wc-hero__back {
   display: inline-block;
@@ -32,6 +34,7 @@
   text-decoration: none;
   margin-bottom: 2.5rem;
   transition: color .3s;
+  order: 1;
 }
 .wc-hero__back:hover { color: #BEFF2E; text-decoration: none; }
 
@@ -45,6 +48,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0;
+  order: 2;
 }
 .wc-hero__tag {
   display: inline-block;
@@ -60,7 +64,7 @@
 .wc-hero__title {
   font-family: 'Blauer', sans-serif;
   font-weight: 700;
-  font-size: clamp(4rem, 10vw, 11rem);
+  font-size: clamp(3.5rem, 8vw, 8rem);
   line-height: .92;
   letter-spacing: -.02em;
   color: #F5F5F2;
@@ -69,6 +73,7 @@
   flex-wrap: wrap;
   align-items: baseline;
   gap: .2em;
+  order: 3;
 }
 .wc-hero__title-ghost {
   font-family: 'Blauer', sans-serif;
@@ -78,12 +83,15 @@
 }
 .wc-hero__tagline {
   font-family: 'Just Sans', sans-serif;
-  font-size: clamp(.9rem, 1.6vw, 1.3rem);
+  font-size: clamp(0.75rem, 1.1vw, 0.95rem);
   font-weight: 300;
   font-style: italic;
   color: rgba(245, 240, 232, .45);
-  letter-spacing: .05em;
+  letter-spacing: 0.16em;
   white-space: nowrap;
+  order: 4;
+  margin-top: 16px;
+  margin-bottom: 0;
 }
 .wc-hero__text {
   font-family: 'Just Sans', sans-serif;
@@ -94,6 +102,7 @@
   max-width: 480px;
   margin-top: 16px;
   line-height: 1.6;
+  order: 5;
 }
 
 /* ── FICHA DO PROJETO ────────────────────────────────────── */
@@ -641,6 +650,41 @@
 .wc-narrative__quote strong {
   font-weight: 400;
   color: #BEFF2E !important;
+  white-space: nowrap;
+}
+
+.wc-narrative__quote--hierarquia {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.wc-quote__principal {
+  font-family: 'Blauer', sans-serif;
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
+  font-weight: 700;
+  color: #F5F0E8;
+  line-height: 1.2;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+}
+
+.wc-quote__secundario {
+  font-family: 'Just Sans', sans-serif;
+  font-size: clamp(1rem, 1.4vw, 1.3rem);
+  font-weight: 300;
+  color: #F5F0E8;
+  line-height: 1.5;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+}
+
+.wc-quote__verde {
+  color: #BEFF2E;
 }
 
 .wc-narrative__quote cite {
@@ -694,11 +738,11 @@
 .wc-fechamento__frase {
   text-align: center;
   font-family: 'Blauer', sans-serif;
-  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  font-size: clamp(1.4rem, 2.6vw, 2.4rem);
   color: #F5F0E8;
   font-weight: 700;
   letter-spacing: 0.01em;
-  line-height: 1.2;
+  line-height: 1.4;
   margin: 0;
 }
 .wc-frase-verde {
