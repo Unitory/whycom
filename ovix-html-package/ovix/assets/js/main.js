@@ -930,7 +930,7 @@
     showCta();
   } else {
     // Primeira visita: trava scroll e oculta header
-    video.loop = false;
+    video.loop = true;
     document.body.style.overflow = 'hidden';
     var header = document.getElementById('xb-header-area');
     if (header) header.classList.add('why-header-hidden');
@@ -953,6 +953,15 @@
       }, 160);
     }
 
+    function releaseIntro() {
+      if (!locked) return;
+      locked = false;
+      document.body.style.overflow = '';
+      sessionStorage.setItem('whyHeroSeen', '1');
+      showCta();
+      // header só aparece após a tensão (onLeave do ScrollTrigger)
+    }
+
     window.addEventListener('wheel', function(e) {
       if (!locked) return;
       if (e.deltaY > 0) { e.preventDefault(); bounce(); }
@@ -963,13 +972,11 @@
       e.preventDefault(); bounce();
     }, { passive: false });
 
-    video.addEventListener('ended', function() {
-      locked = false;
-      document.body.style.overflow = '';
-      sessionStorage.setItem('whyHeroSeen', '1');
-      showCta();
-      // header só aparece após a tensão (onLeave do ScrollTrigger)
+    video.addEventListener('timeupdate', function() {
+      if (!video.duration || video.duration === Infinity) return;
+      if (video.currentTime >= video.duration - 0.25) releaseIntro();
     });
+    video.addEventListener('ended', releaseIntro);
 
     loadVideo();
   }
