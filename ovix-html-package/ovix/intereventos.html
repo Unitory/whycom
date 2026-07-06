@@ -102,223 +102,6 @@
   padding-left: 8px;
 }
 
-/* Direction Section - Layout 2 colunas */
-.wc-direction {
-  padding-top: 100px;
-  padding-bottom: 80px;
-}
-
-.wc-direction__inner {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 60px;
-}
-
-.wc-direction__left {
-  width: 45%;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  padding-top: 0;
-  margin-top: 0;
-}
-
-.wc-direction__right {
-  width: 55%;
-  margin-top: 180px;
-  padding-top: 0;
-}
-
-.wc-headline-verde {
-  color: #BEFF2E;
-  font-style: normal;
-}
-
-.wc-direction__headline {
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
-  line-height: 1.3;
-  margin-top: 0;
-}
-
-.wc-direction-swiper-container {
-  position: relative;
-  width: 100%;
-}
-
-.wc-direction-swiper {
-  width: 100%;
-}
-
-.wc-direction-swiper .wc-direction__cell {
-  position: relative;
-  width: 100%;
-  background: #1A1714;
-  aspect-ratio: 3/4;
-}
-
-.wc-direction-swiper .wc-direction__cell img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  object-position: center;
-}
-
-.wc-direction-swiper .wc-direction__cell::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 30%;
-  background: linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,0.2) 40%, rgba(10,10,10,0.95) 100%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.wc-direction__cell-label {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  color: #F5F0E8;
-  font-family: 'Just Sans', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 400;
-  letter-spacing: 0.05em;
-  z-index: 2;
-}
-
-.wc-direction-swiper-nav {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  top: auto;
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  z-index: 10;
-}
-
-.wc-direction-swiper-prev,
-.wc-direction-swiper-next {
-  width: 48px;
-  height: 48px;
-  background: rgba(10,10,10,0.7);
-  border: 1px solid rgba(190,255,46,0.4);
-  color: #BEFF2E;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 1.2rem;
-  transition: all 0.3s;
-  backdrop-filter: blur(8px);
-}
-
-.wc-direction-swiper-prev:hover,
-.wc-direction-swiper-next:hover {
-  background: #BEFF2E;
-  color: #0A0A0A;
-  border-color: #BEFF2E;
-}
-
-@media (max-width: 992px) {
-  .wc-direction {
-    padding-top: 60px;
-    padding-bottom: 60px;
-  }
-
-  .wc-direction__inner {
-    flex-direction: column;
-    gap: 50px;
-  }
-
-  .wc-direction__left,
-  .wc-direction__right {
-    width: 100%;
-  }
-
-  .wc-direction__left {
-    gap: 30px;
-  }
-
-  .wc-direction__right {
-    margin-top: 0;
-  }
-
-  .wc-direction__headline {
-    font-size: clamp(1.6rem, 5vw, 2.4rem);
-  }
-
-  .wc-direction-swiper-nav {
-    bottom: 12px;
-    right: 12px;
-  }
-
-  .wc-direction-swiper-prev,
-  .wc-direction-swiper-next {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .wc-direction {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-
-  .wc-direction__inner {
-    gap: 40px;
-  }
-
-  .wc-direction__left {
-    gap: 24px;
-  }
-
-  .wc-direction__headline {
-    font-size: clamp(1.4rem, 5.5vw, 2rem);
-    line-height: 1.25;
-  }
-
-  .wc-direction-swiper-nav {
-    bottom: 10px;
-    right: 10px;
-    gap: 6px;
-  }
-
-  .wc-direction-swiper-prev,
-  .wc-direction-swiper-next {
-    width: 36px;
-    height: 36px;
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .wc-direction {
-    padding-top: 40px;
-    padding-bottom: 40px;
-  }
-
-  .wc-direction__inner {
-    gap: 32px;
-  }
-
-  .wc-direction__headline {
-    font-size: clamp(1.3rem, 6vw, 1.8rem);
-  }
-
-  .wc-direction-swiper-prev,
-  .wc-direction-swiper-next {
-    width: 34px;
-    height: 34px;
-    font-size: 0.9rem;
-  }
-}
-
 .wc-lightbox__nav {
   position: absolute;
   top: 50%;
@@ -570,8 +353,8 @@
             <div class="wc-direction__left wow fadeInUp" data-wow-duration=".7s">
               <span class="wc-tag">Lógica de construção</span>
               <h2 class="wc-direction__headline">
-                Cada decisão visual materializa uma
-                <span class="wc-headline-verde">estratégia</span>
+                Cada decisão visual<br>
+                materializa uma <span class="wc-headline-verde">estratégia</span>
               </h2>
               <ul class="wc-flow">
                 <li class="wc-flow__step">
@@ -608,7 +391,7 @@
                     </div>
                     <div class="swiper-slide">
                       <div class="wc-direction__cell">
-                        <img src="assets/clientes/INTEREVENTOS/impresso.png" alt="Material Impresso"
+                        <img src="assets/clientes/INTEREVENTOS/impresso.jpg" alt="Material Impresso"
                              class="wc-lightbox-trigger"
                              data-src="assets/clientes/INTEREVENTOS/impresso.png">
                         <span class="wc-direction__cell-label">Material Impresso</span>
@@ -616,7 +399,7 @@
                     </div>
                     <div class="swiper-slide">
                       <div class="wc-direction__cell">
-                        <img src="assets/clientes/INTEREVENTOS/outdoor.png" alt="Painel eletrônico"
+                        <img src="assets/clientes/INTEREVENTOS/oudoor.jpg" alt="Painel eletrônico"
                              class="wc-lightbox-trigger"
                              data-src="assets/clientes/INTEREVENTOS/outdoor.png">
                         <span class="wc-direction__cell-label">Painel eletrônico</span>
@@ -624,7 +407,7 @@
                     </div>
                     <div class="swiper-slide">
                       <div class="wc-direction__cell">
-                        <img src="assets/clientes/INTEREVENTOS/smartphone.png" alt="Redes Sociais"
+                        <img src="assets/clientes/INTEREVENTOS/smartphone.jpg" alt="Redes Sociais"
                              class="wc-lightbox-trigger"
                              data-src="assets/clientes/INTEREVENTOS/smartphone.png">
                         <span class="wc-direction__cell-label">Redes Sociais</span>
@@ -823,8 +606,6 @@
     slidesPerView: 1,
     spaceBetween: 0,
     loop: false,
-    effect: 'fade',
-    fadeEffect: { crossFade: true },
     navigation: {
       nextEl: '.wc-direction-swiper-next',
       prevEl: '.wc-direction-swiper-prev',
