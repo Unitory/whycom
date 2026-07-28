@@ -903,83 +903,68 @@
   els.forEach(function(el) { obs.observe(el); });
 })();
 
-// WHY HERO — vídeo único + bloqueio de scroll na primeira visita
+// WHY HERO — vídeo triple source (desktop / tablet / mobile), sem bloqueio de scroll
 (function() {
   var video = document.getElementById('why-hero-video');
   if (!video) return;
 
-  var videoSrc = 'assets/Capas hero/capa-hero.mp4';
+  // ── Seleciona a fonte conforme largura da tela ──────────────────────────
+  // mobile  ≤767px | tablet 768–1199px | desktop ≥1200px
+  var isMobile = window.matchMedia('(max-width: 767px)').matches;
+  var isTablet = !isMobile && window.matchMedia('(max-width: 1199px)').matches;
+
+  var size = isMobile ? 'mobile' : isTablet ? 'tablet' : 'desktop';
+
+  var srcWebm = 'assets/Capas hero/capa-hero-' + size + '.webm';
+  var srcMp4  = 'assets/Capas hero/capa-hero-' + size + '.mp4';
+
+  // Fallback final: arquivo original enquanto versões comprimidas não existem
+  var srcFallback = 'assets/Capas hero/capa-hero.mp4';
+
+  function injectSources() {
+    // Limpa sources anteriores (se houver)
+    while (video.firstChild) video.removeChild(video.firstChild);
+
+    // Source webm (melhor compressão se existir)
+    var sWebm = document.createElement('source');
+    sWebm.type = 'video/webm';
+    sWebm.src  = srcWebm;
+    video.appendChild(sWebm);
+
+    // Source mp4 principal
+    var sMp4 = document.createElement('source');
+    sMp4.type = 'video/mp4';
+    sMp4.src  = srcMp4;
+    video.appendChild(sMp4);
+
+    // Source mp4 fallback (arquivo original grande)
+    var sFallback = document.createElement('source');
+    sFallback.type = 'video/mp4';
+    sFallback.src  = srcFallback;
+    video.appendChild(sFallback);
+  }
 
   function loadVideo() {
-    if (video.src && video.src.indexOf(videoSrc) !== -1) return;
-    video.src = videoSrc;
+    injectSources();
     video.load();
     video.play().catch(function(){});
   }
 
+  // ── Exibe CTA se existir ────────────────────────────────────────────────
   function showCta() {
     var wrap = document.querySelector('.why-hero__cta-wrap');
     if (wrap) wrap.classList.add('visible');
   }
 
-  var seen = sessionStorage.getItem('whyHeroSeen');
+  // ── Fallback: se NENHUMA source carregar, o poster fica visível ─────────
+  video.addEventListener('error', function() {
+    // poster já está definido no HTML; não há mais nada a fazer
+  }, true);
 
-  if (seen) {
-    video.loop = true;
-    loadVideo();
-    showCta();
-  } else {
-    // Primeira visita: trava scroll e oculta header
-    video.loop = true;
-    document.body.style.overflow = 'hidden';
-    var header = document.getElementById('xb-header-area');
-    if (header) header.classList.add('why-header-hidden');
-
-    var locked = true;
-    var hero = document.querySelector('.why-hero');
-    var bouncing = false;
-
-    function bounce() {
-      if (bouncing || !hero) return;
-      bouncing = true;
-      hero.style.transition = 'transform .18s cubic-bezier(.36,.07,.19,.97)';
-      hero.style.transform = 'translateY(-10px)';
-      setTimeout(function() {
-        hero.style.transform = 'translateY(4px)';
-        setTimeout(function() {
-          hero.style.transform = 'translateY(0)';
-          setTimeout(function() { bouncing = false; }, 150);
-        }, 120);
-      }, 160);
-    }
-
-    function releaseIntro() {
-      if (!locked) return;
-      locked = false;
-      document.body.style.overflow = '';
-      sessionStorage.setItem('whyHeroSeen', '1');
-      showCta();
-      // header só aparece após a tensão (onLeave do ScrollTrigger)
-    }
-
-    window.addEventListener('wheel', function(e) {
-      if (!locked) return;
-      if (e.deltaY > 0) { e.preventDefault(); bounce(); }
-    }, { passive: false });
-
-    window.addEventListener('touchmove', function(e) {
-      if (!locked) return;
-      e.preventDefault(); bounce();
-    }, { passive: false });
-
-    video.addEventListener('timeupdate', function() {
-      if (!video.duration || video.duration === Infinity) return;
-      if (video.currentTime >= video.duration - 0.25) releaseIntro();
-    });
-    video.addEventListener('ended', releaseIntro);
-
-    loadVideo();
-  }
+  // ── Inicia sem bloqueio de scroll ───────────────────────────────────────
+  loadVideo();
+  showCta();
+  sessionStorage.setItem('whyHeroSeen', '1');
 })();
 
 /* ============================================================

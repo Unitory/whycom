@@ -126,11 +126,20 @@
 }
 
 .wc-lightbox__nav--prev {
-  left: -60px;
+  left: 8px;
 }
 
 .wc-lightbox__nav--next {
-  right: -60px;
+  right: 8px;
+}
+
+@media (min-width: 768px) {
+  .wc-lightbox__nav--prev {
+    left: -60px;
+  }
+  .wc-lightbox__nav--next {
+    right: -60px;
+  }
 }
 
 /* Reduzir tamanho da fonte do narrative quote */
@@ -383,33 +392,33 @@
                   <div class="swiper-wrapper">
                     <div class="swiper-slide">
                       <div class="wc-direction__cell">
-                        <img src="assets/clientes/INTEREVENTOS/inter-eventos.jpg" alt="Web Site"
+                        <img src="assets/Portfolio/digital-inter.jpg" alt="Web Site"
                              class="wc-lightbox-trigger"
-                             data-src="assets/clientes/INTEREVENTOS/inter-eventos.jpg">
+                             data-src="assets/Portfolio/digital-inter.jpg">
                         <span class="wc-direction__cell-label">Web Site</span>
                       </div>
                     </div>
                     <div class="swiper-slide">
                       <div class="wc-direction__cell">
-                        <img src="assets/clientes/INTEREVENTOS/impresso.jpg" alt="Material Impresso"
+                        <img src="assets/Portfolio/impresso-inter.jpg" alt="Material Impresso"
                              class="wc-lightbox-trigger"
-                             data-src="assets/clientes/INTEREVENTOS/impresso.jpg">
+                             data-src="assets/Portfolio/impresso-inter.jpg">
                         <span class="wc-direction__cell-label">Material Impresso</span>
                       </div>
                     </div>
                     <div class="swiper-slide">
                       <div class="wc-direction__cell">
-                        <img src="assets/clientes/INTEREVENTOS/oudoor.jpg" alt="Painel eletrônico"
+                        <img src="assets/Portfolio/outdoor-inter.jpg" alt="Painel eletrônico"
                              class="wc-lightbox-trigger"
-                             data-src="assets/clientes/INTEREVENTOS/oudoor.jpg">
+                             data-src="assets/Portfolio/outdoor-inter.jpg">
                         <span class="wc-direction__cell-label">Painel eletrônico</span>
                       </div>
                     </div>
                     <div class="swiper-slide">
                       <div class="wc-direction__cell">
-                        <img src="assets/clientes/INTEREVENTOS/smartphone.jpg" alt="Redes Sociais"
+                        <img src="assets/Portfolio/redes-inter.jpg" alt="Redes Sociais"
                              class="wc-lightbox-trigger"
-                             data-src="assets/clientes/INTEREVENTOS/smartphone.jpg">
+                             data-src="assets/Portfolio/redes-inter.jpg">
                         <span class="wc-direction__cell-label">Redes Sociais</span>
                       </div>
                     </div>
@@ -635,7 +644,6 @@
   }
 
   function openLB(src, index) {
-    if (window.innerWidth < 1024) return;
     currentIndex = index;
     lbImg.src = src;
     lb.classList.add('wc-lightbox--active');
@@ -674,6 +682,18 @@
     if (e.key === 'Escape') closeLB();
     if (e.key === 'ArrowRight') nextSlide();
     if (e.key === 'ArrowLeft') prevSlide();
+  });
+
+  // Touch swipe support for mobile
+  var touchStartX = 0;
+  lb.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+  lb.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) {
+      if (dx < 0) nextSlide(); else prevSlide();
+    }
   });
 
   // Adicionar setas no lightbox

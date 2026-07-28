@@ -322,7 +322,7 @@
   margin-top: 0;
   padding-top: 0;
   padding-right: max(40px, 4vw);
-  align-self: stretch;
+  align-self: flex-start; /* altura auto — acompanha o swiper */
   position: relative;
 }
 
@@ -376,35 +376,35 @@
   flex-shrink: 0;
 }
 
-/* Swiper */
+/* Swiper — proporção 4:2, contain sem corte */
 .wc-direction-swiper-container {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  inset: auto;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .wc-direction-swiper {
   width: 100%;
-  height: 100%;
+  height: auto;
   overflow: hidden;
 }
 
 .wc-direction-swiper .wc-direction__cell {
   position: relative;
   width: 100%;
-  height: 100%;
-  aspect-ratio: 3/4;
+  height: auto;
+  aspect-ratio: 4 / 2;
   max-height: none;
-  background: #1A1714;
+  background: #0A0A0A; /* fundo preto de apoio quando a imagem não preenche */
 }
 
 .wc-direction-swiper .wc-direction__cell img {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
-  object-position: center;
+  object-fit: contain;   /* mostra a imagem completa, sem corte */
+  object-position: center center;
 }
 
 .wc-direction-swiper .wc-direction__cell::after {
@@ -431,16 +431,18 @@
   z-index: 2;
 }
 
-/* Navegação do Swiper */
+/* Navegação do Swiper — fora da imagem, abaixo do carrossel */
 .wc-direction-swiper-nav {
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
+  position: relative;
+  bottom: auto;
+  right: auto;
   top: auto;
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
   gap: 8px;
   z-index: 10;
+  padding-top: 12px;
 }
 
 .wc-direction-swiper-prev,
@@ -866,15 +868,17 @@
   .wc-direction__right {
     position: relative;
     height: auto;
+    padding-right: max(24px, 4vw);
   }
 
   .wc-direction-swiper-container {
     position: relative;
     inset: auto;
+    height: auto;
   }
 
   .wc-direction-swiper .wc-direction__cell {
-    aspect-ratio: 3/4;
+    aspect-ratio: 4 / 2;
   }
 
   .wc-direction__headline {

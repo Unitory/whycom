@@ -126,11 +126,20 @@
 }
 
 .wc-lightbox__nav--prev {
-  left: -60px;
+  left: 8px;
 }
 
 .wc-lightbox__nav--next {
-  right: -60px;
+  right: 8px;
+}
+
+@media (min-width: 768px) {
+  .wc-lightbox__nav--prev {
+    left: -60px;
+  }
+  .wc-lightbox__nav--next {
+    right: -60px;
+  }
 }
 
   </style>
@@ -382,33 +391,33 @@
                   <div class="swiper-wrapper">
                     <div class="swiper-slide">
                       <div class="wc-direction__cell">
-                        <img src="assets/clientes/MB TERRACE/lpmb.jpg" alt="Landing Page"
+                        <img src="assets/Portfolio/digital-mb.jpg" alt="Landing Page"
                              class="wc-lightbox-trigger"
-                             data-src="assets/clientes/MB TERRACE/lpmb.png">
+                             data-src="assets/Portfolio/digital-mb.jpg">
                         <span class="wc-direction__cell-label">Landing Page</span>
                       </div>
                     </div>
                     <div class="swiper-slide">
                       <div class="wc-direction__cell">
-                        <img src="assets/clientes/MB TERRACE/identidade.jpg" alt="Identidade"
+                        <img src="assets/Portfolio/identidade-mb.jpg" alt="Identidade"
                              class="wc-lightbox-trigger"
-                             data-src="assets/clientes/MB TERRACE/identidade.png">
+                             data-src="assets/Portfolio/identidade-mb.jpg">
                         <span class="wc-direction__cell-label">Identidade</span>
                       </div>
                     </div>
                     <div class="swiper-slide">
                       <div class="wc-direction__cell">
-                        <img src="assets/clientes/MB TERRACE/mural.jpg" alt="Mural"
+                        <img src="assets/Portfolio/mural-mb.jpg" alt="Mural"
                              class="wc-lightbox-trigger"
-                             data-src="assets/clientes/MB TERRACE/mural.png">
+                             data-src="assets/Portfolio/mural-mb.jpg">
                         <span class="wc-direction__cell-label">Aplicação</span>
                       </div>
                     </div>
                     <div class="swiper-slide">
                       <div class="wc-direction__cell">
-                        <img src="assets/clientes/MB TERRACE/papelaria.jpg" alt="Papelaria"
+                        <img src="assets/Portfolio/papelaria-mb.jpg" alt="Papelaria"
                              class="wc-lightbox-trigger"
-                             data-src="assets/clientes/MB TERRACE/papelaria.png">
+                             data-src="assets/Portfolio/papelaria-mb.jpg">
                         <span class="wc-direction__cell-label">Papelaria</span>
                       </div>
                     </div>
@@ -636,7 +645,6 @@
   }
 
   function openLB(src, index) {
-    if (window.innerWidth < 1024) return;
     currentIndex = index;
     lbImg.src = src;
     lb.classList.add('wc-lightbox--active');
@@ -675,6 +683,18 @@
     if (e.key === 'Escape') closeLB();
     if (e.key === 'ArrowRight') nextSlide();
     if (e.key === 'ArrowLeft') prevSlide();
+  });
+
+  // Touch swipe support for mobile
+  var touchStartX = 0;
+  lb.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+  lb.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) {
+      if (dx < 0) nextSlide(); else prevSlide();
+    }
   });
 
   // Adicionar setas no lightbox

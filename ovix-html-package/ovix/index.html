@@ -307,8 +307,11 @@
             <video
               id="why-hero-video"
               class="why-hero__video"
-              autoplay muted loop playsinline preload="auto"
-            ></video>
+              autoplay muted loop playsinline preload="metadata"
+              poster="assets/Capas hero/capa-hero-poster.jpg"
+            >
+              <!-- sources injetados via JS conforme largura da tela -->
+            </video>
             <div class="why-hero__fallback"></div>
           </div>
 
@@ -376,15 +379,19 @@
           </div>
         </div>
         <!-- tensao section end -->
-        
+
+        <!-- sobre institucional start -->
         <!-- metodo section start -->
         <section class="services-three why-metodo" id="metodo">
           <div class="container">
 
-            <div class="section-title-three text-center sec-title-animation animation-style1 mb-60">
+            <div class="section-title-three sec-title-animation animation-style1 mb-60">
               <h2 class="section-title-three__title title-animation">
                 COMO CONSTRUÍMOS DIREÇÃO
               </h2>
+              <p class="why-sobre-inst__texto">
+                A WHY COM é um estúdio estratégico de branding e comunicação que atua entre Portugal e Brasil. Organizamos marcas, negócios e comunicação para <span class="why-sobre-inst__destaque">transformar percepção em valor.</span>
+              </p>
             </div>
 
             <div class="row">
@@ -399,6 +406,7 @@
                     <img src="assets/img/logo/Why-simbolo-5.png" alt="" style="width:40px;opacity:.7;">
                   </div>
                   <h3 class="services-three__title">NÚCLEO</h3>
+                  <p class="why-metodo__linha-pratica">Estratégia, posicionamento e arquitetura de marca.</p>
                   <ul class="why-metodo__list">
                     <li>Quem a marca é.</li>
                     <li>O que a torna única.</li>
@@ -416,6 +424,7 @@
                     <img src="assets/img/logo/Why-simbolo-5.png" alt="" style="width:40px;opacity:.7;">
                   </div>
                   <h3 class="services-three__title">DINÂMICA</h3>
+                  <p class="why-metodo__linha-pratica">Experiência, jornada do cliente e comunicação.</p>
                   <ul class="why-metodo__list">
                     <li>Como a marca se move.</li>
                     <li>Como coloca o cliente no centro das decisões.</li>
@@ -433,6 +442,7 @@
                     <img src="assets/img/logo/Why-simbolo-5.png" alt="" style="width:40px;opacity:.7;">
                   </div>
                   <h3 class="services-three__title">EXPRESSÃO</h3>
+                  <p class="why-metodo__linha-pratica">Identidade visual, conteúdo, campanhas e presença digital.</p>
                   <ul class="why-metodo__list">
                     <li>Como a marca aparece para o mundo.</li>
                     <li>Identidade, comunicação e experiência.</li>
@@ -449,6 +459,48 @@
           </div>
         </section>
         <!-- metodo section end -->
+
+        <!-- o que fazemos start -->
+        <section class="why-servicos">
+          <div class="container">
+            <div class="why-servicos__header">
+              <span class="why-servicos__label">O QUE FAZEMOS</span>
+            </div>
+            <ul class="why-servicos__lista">
+              <li class="why-servicos__item">
+                <span class="why-servicos__num">01</span>
+                <span class="why-servicos__nome">Estratégia e posicionamento de marca</span>
+                <span class="why-servicos__arr">→</span>
+              </li>
+              <li class="why-servicos__item">
+                <span class="why-servicos__num">02</span>
+                <span class="why-servicos__nome">Branding e rebranding</span>
+                <span class="why-servicos__arr">→</span>
+              </li>
+              <li class="why-servicos__item">
+                <span class="why-servicos__num">03</span>
+                <span class="why-servicos__nome">Identidade visual e design</span>
+                <span class="why-servicos__arr">→</span>
+              </li>
+              <li class="why-servicos__item">
+                <span class="why-servicos__num">04</span>
+                <span class="why-servicos__nome">Comunicação estratégica</span>
+                <span class="why-servicos__arr">→</span>
+              </li>
+              <li class="why-servicos__item">
+                <span class="why-servicos__num">05</span>
+                <span class="why-servicos__nome">Conteúdo e presença digital</span>
+                <span class="why-servicos__arr">→</span>
+              </li>
+              <li class="why-servicos__item">
+                <span class="why-servicos__num">06</span>
+                <span class="why-servicos__nome">Campanhas e projetos especiais</span>
+                <span class="why-servicos__arr">→</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <!-- o que fazemos end -->
 
         <!-- marquee start -->
 <section class="why-marquee-logos">
@@ -498,6 +550,7 @@
             <img src="assets/clientes/capa-mbterrace.jpg" alt="Marble Terrace">
             <div class="port-overlay why-port-overlay">
               <h4 class="wpo-title">Marble Terrace</h4>
+              <p class="wpo-tags">Naming · Posicionamento · Identidade · Lançamento</p>
               <p class="wpo-desc">Transformamos um empreendimento em desejo urbano.</p>
               <span class="wpo-btn">Conheça mais →</span>
             </div>
@@ -513,6 +566,7 @@
             <img src="assets/clientes/capa-clementino.jpg" alt="Clementino Cunha">
             <div class="port-overlay why-port-overlay">
               <h4 class="wpo-title">Clementino Cunha</h4>
+              <p class="wpo-tags">Rebranding · Estratégia · Identidade · Website</p>
               <p class="wpo-desc">Organizamos uma história de 45 anos para os próximos 45.</p>
               <span class="wpo-btn">Conheça mais →</span>
             </div>
@@ -528,6 +582,7 @@
             <img src="assets/clientes/capa-inter.jpg" alt="Intereventos">
             <div class="port-overlay why-port-overlay">
               <h4 class="wpo-title">Intereventos</h4>
+              <p class="wpo-tags">Branding · Identidade · Website · Comunicação</p>
               <p class="wpo-desc">Alinhamos percepção de marca à dimensão real da operação.</p>
               <span class="wpo-btn">Conheça mais →</span>
             </div>
@@ -543,6 +598,7 @@
             <img src="assets/clientes/capa-idwine.jpg" alt="ID Wine">
             <div class="port-overlay why-port-overlay">
               <h4 class="wpo-title">ID Wine</h4>
+              <p class="wpo-tags">Branding · Naming · Identidade · Embalagem</p>
               <p class="wpo-desc">Transformamos histórias em vinho.</p>
               <span class="wpo-btn">Conheça mais →</span>
             </div>
@@ -558,6 +614,7 @@
             <img src="assets/clientes/capa-printi.jpg" alt="Printer & CO">
             <div class="port-overlay why-port-overlay">
               <h4 class="wpo-title">Printer & CO</h4>
+              <p class="wpo-tags">Rebranding · Identidade · Conteúdo · Redes Sociais</p>
               <p class="wpo-desc">Reposicionamos uma gráfica como uma marca de criatividade e cultura.</p>
               <span class="wpo-btn">Conheça mais →</span>
             </div>
@@ -606,6 +663,10 @@
 
       <p class="why-fechamento__cargo">
         Fundadora e Diretora Estratégica
+      </p>
+
+      <p class="why-fechamento__autoridade">
+        Mais de 25 anos de experiência em branding e comunicação no Brasil e em Portugal.
       </p>
 
       <p class="why-fechamento__titulo">

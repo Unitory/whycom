@@ -7343,8 +7343,8 @@ blockquote {
   left: 0;
   right: 0;
   background: linear-gradient(to top,
-    rgba(0,0,0,0.95) 0%,
-    rgba(0,0,0,0.80) 40%,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,0.85) 45%,
     rgba(0,0,0,0) 100%);
   padding: 1.25rem 1.5rem 1.5rem;
   opacity: 0;
@@ -10166,13 +10166,20 @@ abbr[title] {
 }
 
 /* Título da seção */
+.why-metodo .section-title-three {
+  text-align: left !important;
+}
 .why-metodo .section-title-three__title {
   font-family: 'Blauer Nue', sans-serif;
   font-weight: 800;
-  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-size: clamp(2.6rem, 5.5vw, 5rem);
   color: #F5F0E8;
-  line-height: 1.15;
+  line-height: 1.1;
   margin-top: .8rem;
+}
+.why-metodo .why-sobre-inst__texto {
+  margin-top: 1.5rem;
+  max-width: 100%;
 }
 
 /* Cards */
@@ -11762,7 +11769,7 @@ main > .why-hero + .why-slide { margin-top: 0 !important; }
   position: absolute;
   bottom: 0; left: 0; right: 0;
   padding: 5rem 1.5rem 2rem 1.5rem;
-  background: linear-gradient(to top, rgba(10,10,10,.95) 0%, rgba(10,10,10,.7) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 55%, transparent 100%);
   opacity: 0;
   transition: opacity .4s ease;
   z-index: 2;
@@ -11921,4 +11928,321 @@ main > .why-hero + .why-slide { margin-top: 0 !important; }
   .why-footer-logo-img {
     height: 34px;
   }
+}
+
+/* ============================================================
+   MOBILE FIXES — revisão responsiva WHY COM
+   ============================================================ */
+
+/* ── 1. Método: padding excessivo em mobile ──────────────── */
+@media (max-width: 768px) {
+  .why-metodo {
+    padding: 70px 0 60px;
+  }
+}
+@media (max-width: 575px) {
+  .why-metodo {
+    padding: 50px 0 40px;
+  }
+}
+
+/* ── 2. Portfólio: pt-145 pb-150 → reduzir em mobile ─────── */
+@media (max-width: 768px) {
+  .portfolio.pt-145 {
+    padding-top: 70px !important;
+  }
+  .portfolio.pb-150 {
+    padding-bottom: 70px !important;
+  }
+}
+@media (max-width: 575px) {
+  .portfolio.pt-145 {
+    padding-top: 50px !important;
+  }
+  .portfolio.pb-150 {
+    padding-bottom: 50px !important;
+  }
+}
+
+/* ── 3. Portfólio: logo decorativa oculta em mobile ─────── */
+@media (max-width: 991px) {
+  .portfolio .col-lg-7.text-end {
+    display: none !important;
+  }
+  .portfolio .col-lg-5 {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+}
+
+/* ── 4. Cards de projeto: overlay visível em touch ────────── */
+/*   Em telas touch o :hover não dispara — exibir sempre      */
+@media (max-width: 991px) {
+  .why-projetos-swiper .why-port-overlay {
+    opacity: 1;
+    background: linear-gradient(to top,
+      rgba(0,0,0,0.96) 0%,
+      rgba(0,0,0,0.70) 45%,
+      rgba(0,0,0,0) 100%);
+  }
+}
+
+/* ── 5. Swiper nav: tamanho e espaço em mobile ────────────── */
+@media (max-width: 575px) {
+  .why-swiper-nav {
+    margin-top: 1.25rem;
+    gap: 0.5rem;
+  }
+  .why-swiper-prev,
+  .why-swiper-next {
+    width: 38px;
+    height: 38px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ── 6. Marquee logos: padding vertical em mobile ─────────── */
+@media (max-width: 768px) {
+  .why-marquee-logos {
+    padding: 0.75rem 0;
+  }
+}
+
+/* ── 7. CTA hero: sem overflow em telas <390px ────────────── */
+@media (max-width: 390px) {
+  .why-hero__cta-wrap {
+    width: 90%;
+    text-align: center;
+  }
+  .why-hero__cta-bottom {
+    font-size: 0.6rem;
+    padding: 0.6rem 1.1rem;
+    letter-spacing: 0.14em;
+  }
+}
+
+/* ── 8. Footer copyright: respiro inferior em mobile ─────── */
+@media (max-width: 575px) {
+  .footer-copyright {
+    padding-bottom: 1.5rem;
+  }
+}
+
+/* ── 9. Método: seção título alinhado à esquerda em mobile── */
+@media (max-width: 768px) {
+  .why-metodo .section-title-three {
+    text-align: left !important;
+  }
+}
+
+/* ── 10. Fechamento: imagem mais alta em landscape mobile ─── */
+@media (max-width: 575px) and (orientation: landscape) {
+  .why-fechamento__img-col {
+    height: 45vw;
+  }
+}
+
+/* ── 11. Tensão: garantir visibilidade em telas muito pequenas */
+@media (max-width: 390px) {
+  .why-tensao-frame {
+    left: 1rem;
+    right: 1rem;
+  }
+  .wtf-title {
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+  .wtf-title--solo {
+    font-size: clamp(2.4rem, 13vw, 3.5rem);
+  }
+  .wtf-sub {
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
+  }
+}
+/* ============================================================
+   WHY SOBRE INSTITUCIONAL
+   ============================================================ */
+.why-sobre-inst__texto {
+  font-family: 'Blauer Nue', sans-serif;
+  font-weight: 300;
+  font-size: clamp(1.05rem, 1.6vw, 1.4rem);
+  line-height: 1.6;
+  color: rgba(245,240,232,.65);
+  margin: 0;
+  text-align: left;
+}
+.why-sobre-inst__destaque {
+  color: #BEFF2E;
+  font-weight: 400;
+}
+
+/* ============================================================
+   WHY MÉTODO — linha prática por pilar
+   ============================================================ */
+.why-metodo__linha-pratica {
+  font-family: 'Just Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: #BEFF2E;
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(190,255,46,.15);
+}
+
+/* ============================================================
+   WHY FECHAMENTO — frase de autoridade
+   ============================================================ */
+.why-fechamento__autoridade {
+  font-family: 'Just Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #BEFF2E;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  margin-bottom: 28px;
+  padding-left: 12px;
+  border-left: 2px solid #BEFF2E;
+}
+
+/* ============================================================
+   WHY SERVIÇOS — O QUE FAZEMOS
+   ============================================================ */
+.why-servicos {
+  background: #0A0A0A;
+  padding: 5rem 0 5rem;
+  border-top: 1px solid rgba(245,240,232,.06);
+  border-bottom: 1px solid rgba(245,240,232,.06);
+}
+.why-servicos__header {
+  margin-bottom: 2.5rem;
+}
+.why-servicos__label {
+  font-family: 'Just Sans', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #BEFF2E;
+}
+.why-servicos__lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.why-servicos__item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid rgba(245,240,232,.07);
+  cursor: default;
+  transition: border-color 0.25s ease;
+}
+.why-servicos__item:first-child {
+  border-top: 1px solid rgba(245,240,232,.07);
+}
+.why-servicos__item:hover {
+  border-bottom-color: rgba(190,255,46,.3);
+}
+.why-servicos__item:hover .why-servicos__nome {
+  color: #F5F0E8;
+}
+.why-servicos__item:hover .why-servicos__arr {
+  opacity: 1;
+  transform: translateX(6px);
+}
+.why-servicos__num {
+  font-family: 'Just Sans', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: rgba(245,240,232,.2);
+  min-width: 2rem;
+  font-weight: 300;
+}
+.why-servicos__nome {
+  font-family: 'Blauer Nue', sans-serif;
+  font-weight: 300;
+  font-size: clamp(1.3rem, 2.4vw, 2rem);
+  color: rgba(245,240,232,.65);
+  flex: 1;
+  line-height: 1.1;
+  transition: color 0.25s ease;
+}
+.why-servicos__arr {
+  font-size: 1rem;
+  color: #BEFF2E;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+@media (max-width: 768px) {
+  .why-servicos { padding: 3.5rem 0; }
+  .why-servicos__nome { font-size: clamp(1.1rem, 4.5vw, 1.5rem); }
+  .why-servicos__item { gap: 1rem; padding: 0.9rem 0; }
+  .why-servicos__arr { opacity: 1; } /* sempre visível em touch */
+}
+
+/* ============================================================
+   CARROSSEL PÁGINAS INTERNAS — aspect-ratio 4:2
+   ============================================================ */
+
+/* Proporção 4:2 (= 2:1) substituindo o 3:4 anterior */
+.wc-direction-swiper .wc-direction__cell {
+  aspect-ratio: 4 / 2;
+  background: #0A0A0A; /* fundo preto de apoio */
+}
+
+/* object-fit: contain para mostrar imagem completa sem corte */
+.wc-direction-swiper .wc-direction__cell img {
+  object-fit: contain;
+  object-position: center center;
+  background: #0A0A0A;
+}
+
+/* Altura do container do swiper: auto em vez de 100% do parent */
+.wc-direction-swiper-container {
+  height: auto !important;
+}
+.wc-direction-swiper {
+  height: auto !important;
+}
+
+/* Coluna direita: auto-height */
+.wc-direction__right {
+  height: auto;
+  align-self: flex-start;
+}
+
+/* Setas: manter fora da área de imagem */
+.wc-direction-swiper-nav {
+  position: relative;
+  bottom: auto;
+  right: auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 0 0;
+}
+
+@media (max-width: 768px) {
+  .wc-direction-swiper .wc-direction__cell {
+    aspect-ratio: 4 / 2;
+  }
+}
+@media (max-width: 575px) {
+  .wc-direction-swiper .wc-direction__cell {
+    aspect-ratio: 4 / 3; /* um pouco mais alto em telas muito pequenas */
+  }
+}
+
+/* ── Tags dos cards de projeto ───────────────────────────── */
+.wpo-tags {
+  font-family: 'Just Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.10em;
+  color: rgba(245, 240, 232, 0.90);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.5;
 }
