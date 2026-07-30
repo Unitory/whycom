@@ -9973,6 +9973,7 @@ abbr[title] {
   height: 100vh;
   overflow: hidden;
   background: #0A0A0A;
+  z-index: 5;
 }
 
 /* Linha base */
@@ -10135,12 +10136,15 @@ abbr[title] {
 }
 
 @media (max-width: 768px) {
-  .why-tensao-wrap { height: 500vh; }
+  .why-tensao-wrap { height: 300vh; }
   .why-tensao-frame { left: 1.5rem; right: 1.5rem; }
   .wtf-sub { font-size: clamp(1rem, 4vw, 1.3rem); }
   .wtf-sub--right { padding-left: 1.5rem; }
-  .wtf-title { font-size: clamp(2.2rem, 10vw, 3.5rem); }
-  .wtf-title--solo { font-size: clamp(2.8rem, 12vw, 4.5rem); }
+  /* H2 maiores no mobile */
+  .wtf-title { font-size: clamp(2.8rem, 13vw, 4.5rem); }
+  .wtf-title--solo { font-size: clamp(3.4rem, 15vw, 5.5rem); }
+  .why-metodo .section-title-three__title { font-size: clamp(3rem, 12vw, 5rem); }
+  .why-projetos-swiper h3.title { font-size: clamp(2.2rem, 10vw, 3.5rem); }
 }
 
 /* ============================================================
@@ -11944,6 +11948,10 @@ main > .why-hero + .why-slide { margin-top: 0 !important; }
   .why-metodo {
     padding: 50px 0 40px;
   }
+  /* Parágrafo: padding direito para não ficar atrás do botão voltar ao topo */
+  .why-metodo .why-sobre-inst__texto {
+    padding-right: 56px;
+  }
 }
 
 /* ── 2. Portfólio: pt-145 pb-150 → reduzir em mobile ─────── */
@@ -12043,17 +12051,32 @@ main > .why-hero + .why-slide { margin-top: 0 !important; }
   }
 }
 
-/* ── 11. Tensão: garantir visibilidade em telas muito pequenas */
+/* ── 11. Tensão: variante desktop/mobile da frase final */
+.wtf-tensao-mob { display: none; }
+
+@media (max-width: 768px) {
+  .wtf-tensao-desk { display: none; }
+  .wtf-tensao-mob { display: block; }
+}
+
+/* ── 12. Tensão: ajuste para telas até 480px */
+@media (max-width: 480px) {
+  .wtf-title--solo {
+    font-size: clamp(2.6rem, 11.5vw, 4rem);
+  }
+}
+
+/* ── 12. Tensão: telas muito pequenas (≤390px) */
 @media (max-width: 390px) {
   .why-tensao-frame {
     left: 1rem;
     right: 1rem;
   }
   .wtf-title {
-    font-size: clamp(2rem, 11vw, 3rem);
+    font-size: clamp(2rem, 10vw, 3rem);
   }
   .wtf-title--solo {
-    font-size: clamp(2.4rem, 13vw, 3.5rem);
+    font-size: clamp(2.2rem, 10.5vw, 3.2rem);
   }
   .wtf-sub {
     font-size: clamp(0.9rem, 4vw, 1.2rem);
@@ -12120,7 +12143,7 @@ main > .why-hero + .why-slide { margin-top: 0 !important; }
 }
 .why-servicos__label {
   font-family: 'Just Sans', sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.85rem;
   font-weight: 400;
   letter-spacing: 0.32em;
   text-transform: uppercase;

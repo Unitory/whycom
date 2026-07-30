@@ -1,16 +1,17 @@
 <!doctype html>
-<html lang="zxx">
+<html lang="pt-PT">
 
 <head>
 
     <!--========= Required meta tags =========-->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="">
+    <meta name="description" content="A WHY COM é um estúdio estratégico de branding e comunicação que organiza marcas, negócios e comunicação entre Portugal e Brasil.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>WHY COM — Comunicação com direção</title>
 
+    <link rel="canonical" href="https://whycom.studio/">
     <link rel="shortcut icon" href="assets/img/logo/Why-simbolo-5.png" type="images/x-icon"/>
 
     <!-- css include -->
@@ -77,6 +78,28 @@
 .why-swiper-next:hover {
   background: #BEFF2E;
   color: #0A0A0A;
+}
+
+/* Mobile: setas abaixo do carrossel, não sobrepostas */
+@media (max-width: 767px) {
+  .why-projetos-swiper {
+    overflow: hidden;
+  }
+  .why-swiper-nav {
+    position: static;
+    transform: none;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 0;
+    margin-top: 20px;
+    pointer-events: all;
+  }
+  .why-swiper-prev,
+  .why-swiper-next {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
 }
 
 /* Dropdown menu para Projetos */
@@ -193,7 +216,7 @@
             <div class="container">
                 <div class="header__wrap ul_li_between">
                     <div class="header-logo">
-                        <a href="index.html"><img src="assets/img/logo/Why-logo-horizontal-4@2x-8.png" alt=""></a>
+                        <a href="index.html"><img src="assets/img/logo/Why-logo-horizontal-4@2x-8.png" alt="WHY COM"></a>
                     </div>
                     <div class="main-menu__wrap ul_li navbar navbar-expand-lg">
                         <nav class="main-menu collapse navbar-collapse">
@@ -207,7 +230,7 @@
                                   <li><a href="marble-terrace.html">Marble Terrace</a></li>
                                   <li><a href="clementino-cunha.html">Clementino Cunha</a></li>
                                   <li><a href="intereventos.html">Intereventos</a></li>
-                                  <li><a href="project-single.html">ID Wine</a></li>
+                                  <li><a href="id-wine.html">ID Wine</a></li>
                                   <li><a href="printer-co.html">Printer & CO</a></li>
                                 </ul>
                               </li>
@@ -219,7 +242,7 @@
                                 <div class="xb-header-menu-scroll">
                                     <div class="xb-menu-close xb-hide-xl xb-close"></div>
                                     <div class="xb-logo-mobile xb-hide-xl">
-                                        <a href="index.html" rel="home"><img src="assets/img/logo/Why-logo-horizontal-4@2x-8.png" alt=""></a></div>
+                                        <a href="index.html" rel="home"><img src="assets/img/logo/Why-logo-horizontal-4@2x-8.png" alt="WHY COM"></a></div>
                                     <div class="xb-header-mobile-search xb-hide-xl">
                                         <form role="search" action="#">
                                             <input type="text" placeholder="Search..." name="s" class="search-field">
@@ -236,7 +259,7 @@
                                                     <li><a href="marble-terrace.html">Marble Terrace</a></li>
                                                     <li><a href="clementino-cunha.html">Clementino Cunha</a></li>
                                                     <li><a href="intereventos.html">Intereventos</a></li>
-                                                    <li><a href="project-single.html">ID Wine</a></li>
+                                                    <li><a href="id-wine.html">ID Wine</a></li>
                                                     <li><a href="printer-co.html">Printer & CO</a></li>
                                                 </ul>
                                             </li>
@@ -249,12 +272,12 @@
                         </div>
                     </div>
                     <div class="side-menu d-none d-lg-block">
-                        <a class="burger-menu" href="javascript:void(0);">
+                        <a class="burger-menu" href="javascript:void(0);" aria-label="Menu">
                             <img src="assets/img/icon/category.svg" alt="">
                         </a>
                     </div>
                     <div class="header-bar-mobile side-menu d-lg-none">
-                        <a class="xb-nav-mobile" href="javascript:void(0);"><img src="assets/img/icon/category.svg" alt=""></a>
+                        <a class="xb-nav-mobile" href="javascript:void(0);" aria-label="Menu"><img src="assets/img/icon/category.svg" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -282,14 +305,14 @@
           <div class="col-xl-4 col-md-5 right-area">
             <ul>
               <li><span class="title">Fale com a WHY COM</span></li>
-              <li><a href="mailto:renata.apolinario@whycom">renata.apolinario@whycom</a></li>
+              <li><a href="mailto:renata.apolinario@whycom.com">renata.apolinario@whycom.com</a></li>
             </ul>
             <ul>
               <li><span class="title">Siga a marca</span></li>
               <li>
                 <ul class="social-links">
-                  <li><a href="#" target="_blank">Instagram</a></li>
-                  <li><a href="#" target="_blank">LinkedIn</a></li>
+                  <li><a href="https://www.instagram.com/whycom.studio?igsh=MWd3dnVtOGxlcm4xaA%3D%3D" target="_blank">Instagram</a></li>
+                  <li><a href="https://www.linkedin.com/company/adefinir/" target="_blank">LinkedIn</a></li>
                 </ul>
               </li>
             </ul>
@@ -300,6 +323,9 @@
 
     <!-- main area start  -->
     <main>
+        <!-- H1 para SEO (visualmente oculto) -->
+        <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">WHY COM — Comunicação com direção</h1>
+
         <!-- hero section start -->
         <section class="why-hero" id="home">
 
@@ -366,9 +392,16 @@
                 <!-- Frame 4 -->
                 <div class="why-tensao-frame" data-frame="3">
                   <p class="wtf-sub">Organizamos</p>
-                  <h2 class="wtf-title wtf-title--solo">
+                  <!-- Desktop: 2 linhas -->
+                  <h2 class="wtf-title wtf-title--solo wtf-tensao-desk">
                     <span class="wtf-lime">O QUE VEM ANTES</span><br>
                     <span class="wtf-white">DA COMUNICAÇÃO.</span>
+                  </h2>
+                  <!-- Mobile: 3 linhas -->
+                  <h2 class="wtf-title wtf-title--solo wtf-tensao-mob">
+                    <span class="wtf-lime">O QUE VEM</span><br>
+                    <span class="wtf-lime">ANTES DA</span><br>
+                    <span class="wtf-white">COMUNICAÇÃO.</span>
                   </h2>
                 </div>
 
@@ -537,7 +570,7 @@
                         </div>
                     </div>
                     <div class="col-lg-7 text-end mb-30">
-                        <img src="assets/img/logo/2.png" alt="" style="width:160px;opacity:.6;">
+                        <img src="assets/img/logo/2.png" alt="" aria-hidden="true" style="width:160px;opacity:.6;">
                     </div>
                 </div>
 <div class="swiper why-projetos-swiper">
@@ -594,7 +627,7 @@
     <div class="swiper-slide">
       <div class="portfolio-item xb-img-reveal-item" data-cat="Branding de Produto" data-title="ID Wine" data-fx="1">
         <div class="xbImage__hover image-4">
-          <a href="project-single.html">
+          <a href="id-wine.html">
             <img src="assets/clientes/capa-idwine.jpg" alt="ID Wine">
             <div class="port-overlay why-port-overlay">
               <h4 class="wpo-title">ID Wine</h4>
@@ -677,7 +710,7 @@
         Se chegou até aqui, talvez seja hora de dar o próximo passo.
       </p>
 
-      <a href="mailto:renata.apolinario@whycom" class="why-cta-btn">
+      <a href="mailto:renata.apolinario@whycom.com" class="why-cta-btn">
         FALAR COM A WHY COM <span>→</span>
       </a>
 
@@ -705,12 +738,12 @@
             </div>
             <ul class="why-footer-social mt-40">
               <li>
-                <a href="#!" target="_blank" aria-label="Instagram">
+                <a href="https://www.instagram.com/whycom.studio?igsh=MWd3dnVtOGxlcm4xaA%3D%3D" target="_blank" aria-label="Instagram">
                   <i class="fab fa-instagram"></i>
                 </a>
               </li>
               <li>
-                <a href="#!" target="_blank" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/company/adefinir/" target="_blank" aria-label="LinkedIn">
                   <i class="fab fa-linkedin-in"></i>
                 </a>
               </li>
@@ -734,8 +767,8 @@
           <div class="footer-widget">
             <h3 class="widget-title">REDES</h3>
             <ul class="footer-links">
-              <li><a href="#!" target="_blank">Instagram</a></li>
-              <li><a href="#!" target="_blank">LinkedIn</a></li>
+              <li><a href="https://www.instagram.com/whycom.studio?igsh=MWd3dnVtOGxlcm4xaA%3D%3D" target="_blank">Instagram</a></li>
+              <li><a href="https://www.linkedin.com/company/adefinir/" target="_blank">LinkedIn</a></li>
             </ul>
           </div>
         </div>
@@ -744,9 +777,9 @@
           <div class="footer-widget">
             <h3 class="widget-title">CONTATO</h3>
             <p style="font-family:'Just Sans',sans-serif;font-weight:300;color:#F5F0E8;line-height:1.8;">
-              renata.apolinario@whycom
+              renata.apolinario@whycom.com
             </p>
-            <a href="mailto:renata.apolinario@whycom" class="why-footer-cta-link">
+            <a href="mailto:renata.apolinario@whycom.com" class="why-footer-cta-link">
               Iniciar conversa →
             </a>
           </div>

@@ -8,6 +8,14 @@
   padding-right: max(40px, 4vw) !important;
 }
 
+/* ── Quebras condicionais mobile/desktop ── */
+.wc-br-mob { display: none; }
+.wc-br-desk { display: inline; }
+@media (max-width: 768px) {
+  .wc-br-mob { display: block; }
+  .wc-br-desk { display: none; }
+}
+
 /* ── HERO DO CASE ────────────────────────────────────────── */
 .wc-hero {
   background: #0A0A0A;
@@ -666,6 +674,7 @@
   font-family: 'Blauer Nue', sans-serif;
   font-size: clamp(1.6rem, 3vw, 2.6rem);
   font-weight: 300;
+  text-wrap: balance;
   line-height: 1.35;
   color: #F5F0E8;
   border: none !important;
@@ -678,7 +687,7 @@
 .wc-narrative__quote strong {
   font-weight: 400;
   color: #BEFF2E !important;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .wc-narrative__quote--hierarquia {
@@ -878,7 +887,7 @@
   }
 
   .wc-direction-swiper .wc-direction__cell {
-    aspect-ratio: 4 / 2;
+    aspect-ratio: 4 / 3;
   }
 
   .wc-direction__headline {
@@ -943,9 +952,24 @@
 @media (max-width: 768px) {
   .wc-hero {
     padding: 120px 0 60px;
+    overflow-x: hidden;
   }
   .wc-hero__title {
-    font-size: clamp(4rem, 18vw, 8rem);
+    font-size: clamp(2.2rem, 10.5vw, 5rem);
+    word-break: keep-all;
+    overflow-wrap: normal;
+  }
+  .wc-hero__tagline {
+    white-space: normal;
+    font-size: clamp(0.7rem, 2.8vw, 0.9rem);
+  }
+  /* Tags dos projetos: menores no mobile para caber 2 por linha */
+  .wc-hero__tag {
+    font-size: 0.6rem;
+    padding: 3px 8px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    letter-spacing: 0.1em;
   }
   .wc-organizado__layout {
     grid-template-columns: 1fr;
@@ -963,6 +987,13 @@
   .wc-narrative__inner {
     grid-template-columns: 1fr;
     gap: 3rem;
+  }
+  .wc-narrative .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .wc-narrative__quote {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
   }
 }
 

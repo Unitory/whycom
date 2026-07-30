@@ -11,37 +11,6 @@
 	= preloader
 	-------------------------------------------*/
 	function preloader() {
-
-		var functionsTriggered = false;
-
-		var progressBar = $(".progress");
-		var percentageText = $(".percentage");
-
-		var tl = gsap.timeline({
-			onStart: function () {
-				if (!functionsTriggered) {
-					gsap.delayedCall(0, function () {
-						functionsTriggered = true;
-					});
-				}
-			},
-		});
-
-		tl.to(progressBar, { height: "100%", duration: 2.5, delay: 1, ease: "power1.in" })
-			.to(percentageText, { text: "100%", duration: 1 }, "-1")
-			.to("#preloader", { y: '-101%', display: "none", duration: 1, ease: "Expo.easeInOut" }, "+=0");
-
-		var count = { value: 0 };
-		gsap.to(count, {
-			value: 100,
-			duration: 2.5,
-			onUpdate: function () {
-				percentageText.text(Math.round(count.value) + "%");
-			},
-			delay: 1
-		});
-
-		// preloader style 2
 		$('#xb-loadding').delay(0).fadeOut();
 	}
 
@@ -201,6 +170,11 @@
 		$('.xb-header-menu').removeClass('active');
 	});
 
+	// Fechar menu mobile ao clicar em links âncora
+	$('.xb-header-menu a[href^="#"]').on('click', function () {
+		$('.xb-nav-mobile').removeClass('active');
+		$('.xb-header-menu').removeClass('active');
+	});
 
 	/*----------------------------------------------------*/
 	/*	HEADER
